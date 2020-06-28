@@ -1,38 +1,133 @@
+html, body, #root {
+    height: 100%;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #0e0e0e;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100%;
+  min-width: 20rem;
 }
 
-.App-link {
-  color: #61dafb;
+.appHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+    color: #60e64b;
+    min-width: 10rem;
+}
+
+h3 {
+    color: #f0f76c;
+}
+
+.appHeader h1 {
+    margin: 0rem;
+}
+
+.mainContent {
+    flex: 0 0 100%;
+    display: flex;
+}
+
+.artistSearch {
+    color: #fff;
+    height: 100%;
+    flex: 0 0 20%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.searchInputContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.artistSearch h2 {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.artistSearch input {
+    width: 10rem;
+}
+
+.artistsList {
+    flex: 0 0 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist {
+    cursor: pointer;
+}
+
+.selectedArtist, .artistTitle {
+    font-weight: bold;
+    color: #e75480;
+}
+
+.artistTitle {
+    margin-bottom: 0;
+}
+
+.lastFmLink {
+    font-size: 0.8rem;
+    color: #33ccff;
+}
+
+.artistInfo {
+    color: #fff;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.artistContainer {
+    display: flex;
+}
+
+.artistBio {
+    flex: 0 0 42rem;
+    margin-right: 2rem;
+}
+
+.descriptionContainer {
+    max-height: 10rem;
+    overflow-y: scroll;
+}
+
+.albumContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 30rem;
+    overflow-y: scroll;
+    justify-content: space-evenly;
+}
+
+.album {
+    width: 19rem;
+    text-decoration: none;
+}
+
+.albumName {
+    width: 19rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #33ccff;
+}
+
+.relatedArtistsContainer {
+    padding-top: 4.7rem;
+    flex: 0 0 10rem;
 }
