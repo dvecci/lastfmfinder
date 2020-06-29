@@ -7,6 +7,7 @@ import {
     getRelatedArtists,
     getLastFmLink
 } from '../selectors/selectors';
+import RelatedArtist from './RelatedArtist';
 
 export const ArtistDescription = ({
     selectedArtist,
@@ -15,9 +16,6 @@ export const ArtistDescription = ({
     relatedArtists,
     lastFmLink
 }) => {
-    console.log('selectedArtistDescription', selectedArtistDescription);
-    console.log('selectedArtistAlbums', selectedArtistAlbums);
-    console.log('relatedArtists', relatedArtists);
     return selectedArtist ? (
             <section className="artistInfo">
                 <div className="artistContainer">
@@ -51,7 +49,7 @@ export const ArtistDescription = ({
                     <div className="relatedArtistsContainer">
                         <h3>Related Artists</h3>
                         {relatedArtists && relatedArtists.length ? relatedArtists.map(relatedArtist => (
-                            <div>{relatedArtist.name}</div>
+                            <RelatedArtist artist={relatedArtist} />
                         )) : null}
                     </div>
                 </div>

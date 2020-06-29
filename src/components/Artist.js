@@ -1,36 +1,45 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-    selectArtist as selectArtistAction,
-    getSelectedArtistDescription as getSelectedArtistDescriptionAction,
-    getSelectedArtistAlbums as getSelectedArtistAlbumsAction
+    selectArtist as selectArtistAction
 } from '../actions/actions';
-import { getSelectedArtist } from '../selectors/selectors';
+import { getSelectedArtist, getIsFetching } from '../selectors/selectors';
 
-const Artist = ({
-    artist,
-    selectArtist,
-    selectedArtist,
-    getSelectedArtistDescription,
-    getSelectedArtistAlbums
-}) => {
-    console.log('selectedArtist', selectedArtist);
-    const artistClassName = selectedArtist === artist ? 'selectedArtist' : 'artist';
-    return <div className={artistClassName} onClick={() => {
+export class Artist extends React.PureComponent {
+    componentDidUpdate() {
+        if (this.props.selected && !this.props.isFetching) {
+            this.handleClick();
+        }
+    }
+
+    handleClick() {
+        const {
+            artist,
+            selectArtist,
+            selectedArtist
+        }= this.props;
+        if (artist !== selectedArtist) {
             selectArtist(artist);
-            getSelectedArtistDescription(artist);
-            getSelectedArtistAlbums(artist);
-        }}>{artist}</div>;
-}
+        }
+    }
 
+    render ({
+        artist,
+        selectedArtist
+    }= this.props)  {
+        const artistClassName = selectedArtist === artist ? 'selectedArtist' : 'artist';
+        return <div className={artistClassName} onClick={() => {
+                this.handleClick();
+            }}>{artist}</div>;
+    }
+}
 const ConnectedArtist = connect(
     state => ({
-        selectedArtist: getSelectedArtist(state)
+        selectedArtist: getSelectedArtist(state),
+        isFetching: getIsFetching(state)
     }),
     {
-        selectArtist: selectArtistAction,
-        getSelectedArtistDescription: getSelectedArtistDescriptionAction,
-        getSelectedArtistAlbums: getSelectedArtistAlbumsAction
+        selectArtist: selectArtistAction
     }
 )(Artist);
 

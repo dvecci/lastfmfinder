@@ -13,16 +13,18 @@ export const getSelectedArtistDescription = state => {
 
 export const getSelectedArtistAlbums = state => {
     if (state.albumInfo) {
-        const albums = state.albumInfo.topalbums.album;
+        const albums = ((state.albumInfo || {}).topalbums || {}).album;
         const albumInfo = [];
-        albums.forEach(albumItem => {
-            const album = {
-                ...albumItem,
-                image: albumItem.image[3]['#text']
-            };
-            albumInfo.push(album);
-        });
-        return albumInfo;
+        if (albums) {
+            albums.forEach(albumItem => {
+                const album = {
+                    ...albumItem,
+                    image: albumItem.image[3]['#text']
+                };
+                albumInfo.push(album);
+            });
+            return albumInfo;
+        }
     }
     return undefined;
 };
@@ -39,4 +41,16 @@ export const getLastFmLink = state => {
         return ((state.description || {}).artist || {}).url
     }
     return undefined;
+};
+
+export const getInputVal = state => {
+    return state.inputVal;
+};
+
+export const getInputRef = state => {
+    return state.inputRef;
+};
+
+export const getIsFetching = state => {
+    return state.isFetching;
 };

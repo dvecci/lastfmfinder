@@ -9,6 +9,7 @@ import ArtistDescription from './components/ArtistDescription';
 export class App extends React.Component {
 
     render() {
+        console.log(';; render app');
         return <div className="App">
           <header className="appHeader">
             <h1>Last FM Artist Finder</h1>

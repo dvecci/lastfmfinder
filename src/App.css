@@ -15,11 +15,15 @@ html, body, #root {
     justify-content: center;
     height: 4rem;
     color: white;
+    border-bottom: 1px solid #e75480;
+    padding-bottom: 0.3rem;
 }
 
 h1 {
     color: #60e64b;
     min-width: 10rem;
+    width: 30rem;
+    text-align: center;
 }
 
 h3 {
@@ -41,8 +45,8 @@ h3 {
     flex: 0 0 20%;
     padding: 0.5rem;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    padding: 0 1rem;
 }
 
 .searchInputContainer {
@@ -65,7 +69,6 @@ h3 {
     flex: 0 0 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .artist {
@@ -104,13 +107,12 @@ h3 {
 .descriptionContainer {
     max-height: 10rem;
     overflow-y: scroll;
+    text-align: left;
 }
 
 .albumContainer {
     display: flex;
     flex-wrap: wrap;
-    max-height: 30rem;
-    overflow-y: scroll;
     justify-content: space-evenly;
 }
 
@@ -130,4 +132,9 @@ h3 {
 .relatedArtistsContainer {
     padding-top: 4.7rem;
     flex: 0 0 10rem;
+}
+
+.relatedArtist {
+    cursor: pointer;
+    margin-bottom: 0.5rem;
 }

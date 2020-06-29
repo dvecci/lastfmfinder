@@ -1,18 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchArtists as fetchArtistsAction } from '../actions/actions';
+import { getInputVal } from '../selectors/selectors';
+import SearchInput from './SearchInput';
 
-const ArtistSearch = ({fetchArtists}) => {
+const ArtistSearch = ({
+    fetchArtists,
+    inputVal
+}) => {
     return (
         <div className="searchInputContainer">
             <h2>Search For Your Favorite Artist</h2>
-            <input type="text" onChange={evt => { fetchArtists(evt.target.value);}} />
+            {/*<input defaultValue={inputVal} type="text" onChange={evt => { fetchArtists(evt.target.value);}} />*/}
+            <SearchInput />
         </div>
     )
 }
 
 const ConnectedArtistSearch = connect(
-    null,
+    state => ({
+        inputVal: getInputVal(state)
+    }),
     {
         fetchArtists: fetchArtistsAction
     }
