@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
     selectArtist as selectArtistAction
@@ -33,6 +34,14 @@ export class Artist extends React.PureComponent {
             }}>{artist}</div>;
     }
 }
+
+Artist.propTypes = {
+    selected: PropTypes.bool,
+    isFetching: PropTypes.bool,
+    selectedArtist: PropTypes.string,
+    selectArtist: PropTypes.func
+};
+
 const ConnectedArtist = connect(
     state => ({
         selectedArtist: getSelectedArtist(state),

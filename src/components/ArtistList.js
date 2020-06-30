@@ -1,13 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
     getArtistNames as getArtistNamesSelector,
-    getSelectedArtist,
-    getIsFetching
+    getSelectedArtist
 } from '../selectors/selectors';
 import Artist from './Artist';
 
-export const ArtistList = React.memo(({artists, selectedArtist, isFetching}) =>
+export const ArtistList = React.memo(({artists, selectedArtist}) =>
     artists.length ? (
         <div className="artistsList">
             <h2>Results</h2>
@@ -20,10 +20,14 @@ export const ArtistList = React.memo(({artists, selectedArtist, isFetching}) =>
         </div>
     ) : null);
 
+ArtistList.propTypes = {
+    artists: PropTypes.array,
+    selectedArtist: PropTypes.string
+};
+
 const ConnectedArtistList = connect(state => ({
         artists: getArtistNamesSelector(state),
         selectedArtist: getSelectedArtist(state)
-    }
-))(ArtistList)
+}))(ArtistList)
 
 export default ConnectedArtistList;

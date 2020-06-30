@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
     fetchArtists as fetchArtistsAction,
@@ -22,6 +23,12 @@ export class SearchInput extends React.PureComponent {
         const value = this.props.inputVal || this.state.value;
         return (<input className="searchInput" value={value} type="text" onChange={evt => { this.handleChange(evt);}} />);
     }
+};
+
+SearchInput.propTypes = {
+    setTypingInputField: PropTypes.func,
+    fetchArtists: PropTypes.func,
+    inputVal: PropTypes.string
 };
 
 const ConnectedSearchInput = connect(

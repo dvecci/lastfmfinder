@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
     getSelectedArtist,
@@ -66,7 +67,17 @@ export const ArtistDescription = ({
                 </div>
             </section>
         ) : null;
-}
+};
+
+ArtistDescription.propTypes = {
+  selectedArtist: PropTypes.func,
+  selectedArtistDescription: PropTypes.string,
+  selectedArtistAlbums: PropTypes.array,
+  relatedArtists: PropTypes.array,
+  lastFmLink: PropTypes.string,
+  readMoreDisplay: PropTypes.bool,
+  readMore: PropTypes.func
+};
 
 export const ConnectedArtistDescription = connect(
     state => ({
