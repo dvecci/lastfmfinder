@@ -213,4 +213,5 @@ h2 {
 .relatedArtist {
     cursor: pointer;
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }

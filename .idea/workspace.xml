@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfce43a8-6c3c-4d50-98a4-3301352629a9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Artist.js" afterPath="$PROJECT_DIR$/src/components/Artist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,7 +14,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7626854">
+    <splitter split-orientation="horizontal" split-proportion="0.4746292">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
@@ -27,11 +27,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="RelatedArtist.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="RelatedArtist.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/RelatedArtist.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="38" lean-forward="true" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+                <state relative-caret-position="170">
+                  <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -80,7 +80,7 @@
           <file leaf-file-name="appReducer.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/reducers/appReducer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
+                <state relative-caret-position="226">
                   <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
                   <folding />
                 </state>
@@ -97,10 +97,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Artist.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Artist.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/Artist.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="121">
+                <state relative-caret-position="340">
                   <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
                   <folding />
                 </state>
@@ -131,17 +131,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/App.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="399">
-                  <caret line="208" column="26" lean-forward="false" selection-start-line="208" selection-start-column="26" selection-end-line="208" selection-end-column="26" />
+                <state relative-caret-position="518">
+                  <caret line="215" column="22" lean-forward="false" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="actions.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/actions/actions.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-692">
@@ -233,15 +233,15 @@
         <option value="$PROJECT_DIR$/src/actions/actions.js" />
         <option value="$PROJECT_DIR$/src/reducers/appReducer.js" />
         <option value="$PROJECT_DIR$/src/components/ArtistDescription.js" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/RelatedArtist.js" />
         <option value="$PROJECT_DIR$/src/components/Artist.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-20" />
-    <option name="y" value="277" />
+    <option name="x" value="33" />
+    <option name="y" value="239" />
     <option name="width" value="1735" />
     <option name="height" value="806" />
   </component>
@@ -574,7 +574,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-20" y="277" width="1735" height="806" extended-state="0" />
+    <frame x="33" y="239" width="1735" height="806" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -810,22 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/appReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="208" column="26" lean-forward="false" selection-start-line="208" selection-start-column="26" selection-end-line="208" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ArtistDescription.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -838,14 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-692">
           <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RelatedArtist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="38" lean-forward="true" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -884,8 +860,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Artist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
+        <state relative-caret-position="340">
           <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/appReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/RelatedArtist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="215" column="22" lean-forward="false" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
           <folding />
         </state>
       </provider>
