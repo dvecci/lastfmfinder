@@ -18,9 +18,7 @@ export class Artist extends React.PureComponent {
             selectArtist,
             selectedArtist
         }= this.props;
-        console.log(';; handleClick');
         if (artist !== selectedArtist) {
-            console.log(';; selectArtist');
             selectArtist(artist);
         }
     }
