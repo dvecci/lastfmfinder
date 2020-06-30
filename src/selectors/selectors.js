@@ -19,7 +19,7 @@ export const getSelectedArtistAlbums = state => {
             albums.forEach(albumItem => {
                 const album = {
                     ...albumItem,
-                    image: albumItem.image[3]['#text']
+                    image: albumItem.image[2]['#text']
                 };
                 albumInfo.push(album);
             });
@@ -54,3 +54,7 @@ export const getInputRef = state => {
 export const getIsFetching = state => {
     return state.isFetching;
 };
+
+export const getReadMoreDisplay = state => {
+    return state.readMore;
+}

@@ -10,7 +10,7 @@ import Artist from './Artist';
 export const ArtistList = React.memo(({artists, selectedArtist, isFetching}) =>
     artists.length ? (
         <div className="artistsList">
-            <h3>Artists</h3>
+            <h2>Results</h2>
             {artists.map((artist, index) => {
                 if ((!selectedArtist && index === 0) || selectedArtist === artist) {
                     return (<Artist selected key={index} artist={artist} />)

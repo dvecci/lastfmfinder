@@ -10,8 +10,6 @@ const ArtistSearch = ({
 }) => {
     return (
         <div className="searchInputContainer">
-            <h2>Search For Your Favorite Artist</h2>
-            {/*<input defaultValue={inputVal} type="text" onChange={evt => { fetchArtists(evt.target.value);}} />*/}
             <SearchInput />
         </div>
     )

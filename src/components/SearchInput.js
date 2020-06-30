@@ -20,7 +20,7 @@ export class SearchInput extends React.PureComponent {
 
     render() {
         const value = this.props.inputVal || this.state.value;
-        return (<input value={value} type="text" onChange={evt => { this.handleChange(evt);}} />);
+        return (<input className="searchInput" value={value} type="text" onChange={evt => { this.handleChange(evt);}} />);
     }
 };
 

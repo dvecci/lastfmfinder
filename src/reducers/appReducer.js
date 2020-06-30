@@ -1,22 +1,19 @@
-const initialState = {};
+const initialState = {
+    readMore: false
+};
 
 const appReducer = (state = initialState, action) => {
 	switch (action.type) {
-//	    case 'SET_SELECT_ARTIST':
-//	        return {
-//	            ...state,
-//	            selectedArtist: action.payload
-//	        };
 		case 'SET_ARTISTS':
 			const artists = (((action.payload || {}).results || {}).artistmatches || {}).artist;
-			console.log(';; set artists action');
 			if (artists) {
 			    return {
                     ...state,
                     artists: artists.reduce((obj, val) => {
                         obj[val.name] = val
                         return obj;
-                    },  {})
+                    },  {}),
+                    readMore: false
                 };
 			}
 			return {
@@ -26,26 +23,6 @@ const appReducer = (state = initialState, action) => {
 			    albumInfo: undefined,
 			    description: undefined
 			}
-
-//        case 'SET_DESCRIPTION':
-               //            console.log(';; set desc reducer');
-               //            const description = action.payload;
-               //            return {
-               //                ...state,
-               //                description
-               //            };
-               //        case 'SET_ALBUM_INFO':
-               //            const albumInfo = action.payload;
-               //            if (albumInfo) {
-               //                return {
-               //                    ...state,
-               //                    albumInfo
-               //                };
-               //            }
-               //            return {
-               //                ...state,
-               //                albumInfo: undefined
-               //            }
         case 'IS_FETCHING':
             return {
                 ...state,
@@ -61,22 +38,25 @@ const appReducer = (state = initialState, action) => {
                 ...state,
                 description,
                 albumInfo,
-                selectedArtist
+                selectedArtist,
+                readMore: false
             };
         case 'SET_INPUT_FIELD':
-            console.log(';;action', action);
             return {
                 ...state,
-                inputVal: action.payload,
-                selectedArtist: action.payload
+                inputVal: action.payload
             };
         case 'SET_TYPING_INPUT_FIELD':
-            console.log(';; set typing input field')
             return {
                 ...state,
                 inputVal: action.payload,
                 selectedArtist: undefined
             };
+        case 'SET_READ_MORE':
+            return {
+                ...state,
+                readMore: true
+            }
 		default:
 			return state;
 	}

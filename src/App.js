@@ -9,16 +9,19 @@ import ArtistDescription from './components/ArtistDescription';
 export class App extends React.Component {
 
     render() {
-        console.log(';; render app');
         return <div className="App">
-          <header className="appHeader">
-            <h1>Last FM Artist Finder</h1>
-          </header>
+
           <section className="mainContent">
-            <section className="artistSearch">
-                <ArtistSearch />
-                <ArtistList />
-            </section>
+            <aside className="searchColumn">
+                <header className="appHeader">
+                  <h1 className="lastFmLogo">Last FM Artist Finder</h1>
+                  <div className="subLogoText">Artist Finder</div>
+                </header>
+                <section className="artistSearch">
+                    <ArtistSearch />
+                    <ArtistList />
+                </section>
+            </aside>
             <section className="artistDescription">
                 <ArtistDescription />
             </section>

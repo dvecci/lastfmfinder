@@ -6,6 +6,7 @@ export const setInputField = createAction('SET_INPUT_FIELD');
 export const setTypingInputField = createAction('SET_TYPING_INPUT_FIELD');
 export const setArtistData = createAction('SET_ARTIST_DATA');
 export const isFetching = createAction('IS_FETCHING');
+export const readMore = createAction('SET_READ_MORE');
 
 const ARTIST_CACHE = {};
 const ALBUM_CACHE = {};
