@@ -22,7 +22,7 @@ export const RelatedArtist = ({
 );
 
 RelatedArtist.propTypes = {
-    artist: PropTypes.string,
+    artist: PropTypes.object,
     setInputField: PropTypes.func,
     selectArtist: PropTypes.func,
     fetchArtists: PropTypes.func

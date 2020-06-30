@@ -60,8 +60,8 @@ export const ArtistDescription = ({
                     </div>
                     <div className="relatedArtistsContainer">
                         <h2>Related Artists</h2>
-                        {relatedArtists && relatedArtists.length ? relatedArtists.map(relatedArtist => (
-                            <RelatedArtist artist={relatedArtist} />
+                        {relatedArtists && relatedArtists.length ? relatedArtists.map((relatedArtist, index) => (
+                            <RelatedArtist key={index} artist={relatedArtist} />
                         )) : null}
                     </div>
                 </div>
@@ -70,7 +70,7 @@ export const ArtistDescription = ({
 };
 
 ArtistDescription.propTypes = {
-  selectedArtist: PropTypes.func,
+  selectedArtist: PropTypes.string,
   selectedArtistDescription: PropTypes.string,
   selectedArtistAlbums: PropTypes.array,
   relatedArtists: PropTypes.array,
