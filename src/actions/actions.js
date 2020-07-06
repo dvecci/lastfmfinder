@@ -9,56 +9,42 @@ export const isFetching = createAction('IS_FETCHING');
 export const readMore = createAction('SET_READ_MORE');
 
 const ARTIST_CACHE = {};
-const ALBUM_CACHE = {};
-const DESCRIPTION_CACHE = {};
+const ARTIST_INFO_CACHE = {};
 
 export const selectArtist = artist => {
-    return dispatch => {
-        dispatch(fetchSelectedArtistDescription(artist));
-    }
-}
-
-export const fetchSelectedArtistDescription = artist => {
-    const url = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + artist + '&api_key=5a5ae083ffb3779a07d3fec6fc4f6523&format=json';
-    if (DESCRIPTION_CACHE[url]) {
+    if (ARTIST_INFO_CACHE[artist]) {
         return dispatch => {
-            const description = DESCRIPTION_CACHE[url];
-            dispatch(fetchSelectedArtistAlbums(artist, description));
+            dispatch(setArtistData({
+                description: ARTIST_INFO_CACHE[artist].description,
+                albumInfo: ARTIST_INFO_CACHE[artist].albumInfo,
+                selectedArtist: artist
+            }));
         }
     } else {
+        const artistPromises = [];
+        const descriptionUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + artist + '&api_key=5a5ae083ffb3779a07d3fec6fc4f6523&format=json';
+        artistPromises.push(fetch(descriptionUrl));
+        const albumUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=' + artist + '&api_key=5a5ae083ffb3779a07d3fec6fc4f6523&format=json';
+        artistPromises.push(fetch(albumUrl));
         return dispatch => {
-            fetch(url).then(
-                desc => desc.json()
-            ).then(description => {
-                DESCRIPTION_CACHE[url] = description;
-                dispatch(fetchSelectedArtistAlbums(artist, description));
+            Promise.all(artistPromises).then(
+                async ([descriptionResponse, albumResponse]) => {
+                    const description = await descriptionResponse.json();
+                    const albumInfo = await albumResponse.json();
+                    ARTIST_INFO_CACHE[artist] = {
+                        description,
+                        albumInfo
+                    };
+                    return [description, albumInfo];
+                }
+            ).then(([description, albumInfo]) => {
+                dispatch(setArtistData({
+                    description,
+                    albumInfo,
+                    selectedArtist: artist
+                }));
             });
         }
-    }
-};
-
-export const fetchSelectedArtistAlbums = (artist, description) => {
-    const url = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=' + artist + '&api_key=5a5ae083ffb3779a07d3fec6fc4f6523&format=json';
-    if (ALBUM_CACHE[url]) {
-        return dispatch => {
-            const albumInfo = ALBUM_CACHE[url];
-            dispatch(setArtistData({
-                description,
-                albumInfo,
-                selectedArtist: artist
-            }));
-        }
-    } else {
-        return dispatch => fetch(url).then(
-            albumInfo => albumInfo.json()
-        ).then(albumInfo => {
-            ALBUM_CACHE[url] = albumInfo;
-            dispatch(setArtistData({
-                description,
-                albumInfo,
-                selectedArtist: artist
-            }));
-        });
     }
 };
 
