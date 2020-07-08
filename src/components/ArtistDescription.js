@@ -39,7 +39,7 @@ export const ArtistDescription = ({
             <section className="artistInfo">
                 <div className="artistTitleHeader">
                     <h2 className="artistTitle">{selectedArtist}</h2>
-                    <a className="lastFmLink" href={lastFmLink} rel="noopener" target="_blank">View on lastfm</a>
+                    <a className="lastFmLink" href={lastFmLink} rel="noopener noreferrer" target="_blank">View on lastfm</a>
                 </div>
                 <div className="artistContainer">
                     <div className="artistBio">
@@ -60,7 +60,7 @@ export const ArtistDescription = ({
                                     { selectedArtistTopTracks.map(
                                         (track, index) => (
                                             <div className="topTrack" key={index}>
-                                                <a href={track.url} rel="noopener" target="_blank" className="topTrack">{track.name}</a>
+                                                <a href={track.url} rel="noopener noreferrer" target="_blank" className="topTrack">{track.name}</a>
                                                 {lovedTracks.includes(track.url) && (
                                                     <span className="loveIcon"></span>
                                                 )}
@@ -76,9 +76,9 @@ export const ArtistDescription = ({
                                 <div className="albumContainer">
                                     { selectedArtistAlbums && selectedArtistAlbums.map(
                                         (album, index) => (
-                                            <a href={album.url} rel="noopener" target="_blank" className="album" key={index}>
+                                            <a href={album.url} rel="noopener noreferrer" target="_blank" className="album" key={index}>
                                                 { album.image ? (
-                                                    <img className="albumImage" src={album.image} />
+                                                    <img className="albumImage" src={album.image} alt={album.name} />
                                                 ) : (
                                                     <div className="noImage">No Image Available</div>
                                                 )}

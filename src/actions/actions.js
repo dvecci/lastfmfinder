@@ -1,6 +1,4 @@
-import redux from 'redux';
 import { createAction } from 'redux-actions';
-import md5 from 'md5';
 export const setArtists = createAction('SET_ARTISTS');
 export const setSelectArtist = createAction('SET_SELECT_ARTIST');
 export const setInputField = createAction('SET_INPUT_FIELD');

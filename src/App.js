@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import PropTypes from 'prop-types';
-import ArtistSearch from './components/ArtistSearch';
-import ArtistList from './components/ArtistList';
-import ArtistDescription from './components/ArtistDescription';
 import md5 from 'md5';
 import {
     setUserData as setUserDataAction
