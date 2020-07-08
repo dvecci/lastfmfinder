@@ -31,7 +31,6 @@ body, #root {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 6rem;
     color: white;
     padding: 0.3rem;
     margin-bottom: 2rem;
@@ -40,10 +39,17 @@ body, #root {
 .lastFmLogo {
     display: inline-block;
     color: transparent;
-    height: 10rem;
+    height: 5rem;
     width: 20rem;
     background: url('./images/lastFmLogo.png') no-repeat center;
     margin: 0;
+}
+
+.loveIcon {
+    display: inline-block;
+    height: 0.8rem;
+    width: 3rem;
+    background: url('./images/love_solid_red.png') no-repeat center;
 }
 
 .subLogoText {
@@ -148,20 +154,31 @@ h2 {
     margin-right: 2rem;
 }
 
-.description {
+.description, .topTracks {
     position: relative;
 }
 
-.descriptionContainer {
+.descriptionContainer, .tracksContainer {
     max-height: 10rem;
     overflow-y: hidden;
 }
 
-.descriptionExpanded {
+.descriptionExpanded, .tracksExpanded {
     height: auto;
     transition: max-height 16s ease-out;
     max-height: 1000rem;
     overflow-y: hidden;
+}
+
+.topTrack {
+    color: #0e0e0e;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.topTrack:nth-child(2n) {
+    background: #faf6ea;
 }
 
 .readMoreButton {

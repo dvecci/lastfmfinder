@@ -11,6 +11,13 @@ export const getSelectedArtistDescription = state => {
     return undefined;
 };
 
+export const getSelectedArtistTopTracks = state => {
+    if (state.topTracks) {
+        return ((state.topTracks || {}).toptracks || {}).track;
+    }
+    return undefined;
+};
+
 export const getSelectedArtistAlbums = state => {
     if (state.albumInfo) {
         const albums = ((state.albumInfo || {}).topalbums || {}).album;
@@ -55,6 +62,21 @@ export const getIsFetching = state => {
     return state.isFetching;
 };
 
-export const getReadMoreDisplay = state => {
-    return state.readMore;
+export const getBioReadMoreDisplay = state => {
+    return state.bioReadMore;
+};
+
+export const getTracksReadMoreDisplay = state => {
+    return state.tracksReadMore;
+};
+
+export const getUserName = state => {
+    return state.userName;
+};
+
+export const getLovedTracks = state => {
+    if (state.lovedTracks) {
+        return state.lovedTracks.lovedtracks.track.map(track => track.url);
+    }
+    return undefined;
 }

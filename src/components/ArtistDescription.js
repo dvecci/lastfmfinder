@@ -4,27 +4,37 @@ import { connect } from 'react-redux';
 import {
     getSelectedArtist,
     getSelectedArtistDescription,
+    getSelectedArtistTopTracks,
     getSelectedArtistAlbums,
     getRelatedArtists,
     getLastFmLink,
-    getReadMoreDisplay
+    getBioReadMoreDisplay,
+    getTracksReadMoreDisplay,
+    getLovedTracks
 } from '../selectors/selectors';
 import {
-    readMore as readMoreAction
+    bioReadMore as bioReadMoreAction,
+    tracksReadMore as tracksReadMoreAction
 } from '../actions/actions';
 import RelatedArtist from './RelatedArtist';
 
 export const ArtistDescription = ({
     selectedArtist,
     selectedArtistDescription,
+    selectedArtistTopTracks,
     selectedArtistAlbums,
     relatedArtists,
     lastFmLink,
-    readMoreDisplay,
-    readMore
+    bioReadMoreDisplay,
+    bioReadMore,
+    tracksReadMoreDisplay,
+    tracksReadMore,
+    lovedTracks
 }) => {
-    const descriptionContainerClass = readMoreDisplay ? 'descriptionExpanded' : 'descriptionContainer';
-    const readMoreButtonClass = readMoreDisplay ? 'readMoreButtonHidden' : 'readMoreButton';
+    const descriptionContainerClass = bioReadMoreDisplay ? 'descriptionExpanded' : 'descriptionContainer';
+    const bioReadMoreButtonClass = bioReadMoreDisplay ? 'readMoreButtonHidden' : 'readMoreButton';
+    const tracksContainerClass = tracksReadMoreDisplay ? 'tracksExpanded' : 'tracksContainer';
+    const tracksReadMoreButtonClass = tracksReadMoreDisplay ? 'readMoreButtonHidden' : 'readMoreButton';
     return selectedArtist ? (
             <section className="artistInfo">
                 <div className="artistTitleHeader">
@@ -36,9 +46,27 @@ export const ArtistDescription = ({
                         { selectedArtistDescription && (
                             <div className="description">
                                 <h2>Biography</h2>
-                                <button onClick={readMore} className={readMoreButtonClass}>Read More</button>
+                                <button onClick={bioReadMore} className={bioReadMoreButtonClass}>Read More</button>
                                 <div className={descriptionContainerClass}>
                                     <p>{selectedArtistDescription}</p>
+                                </div>
+                            </div>
+                        )}
+                        { selectedArtistTopTracks && (
+                            <div className="topTracks">
+                                <h2>Top Tracks</h2>
+                                <button onClick={tracksReadMore} className={tracksReadMoreButtonClass}>Read More</button>
+                                <div className={tracksContainerClass}>
+                                    { selectedArtistTopTracks.map(
+                                        (track, index) => (
+                                            <div className="topTrack" key={index}>
+                                                <a href={track.url} rel="noopener" target="_blank" className="topTrack">{track.name}</a>
+                                                {lovedTracks.includes(track.url) && (
+                                                    <span className="loveIcon"></span>
+                                                )}
+                                            </div>
+                                        )
+                                    )}
                                 </div>
                             </div>
                         )}
@@ -82,14 +110,18 @@ ArtistDescription.propTypes = {
 export const ConnectedArtistDescription = connect(
     state => ({
         selectedArtist: getSelectedArtist(state),
-        selectedArtistDescription: getSelectedArtistDescription(state) || undefined,
+        selectedArtistDescription: getSelectedArtistDescription(state),
+        selectedArtistTopTracks: getSelectedArtistTopTracks(state),
         selectedArtistAlbums: getSelectedArtistAlbums(state),
         relatedArtists: getRelatedArtists(state),
         lastFmLink: getLastFmLink(state),
-        readMoreDisplay: getReadMoreDisplay(state)
+        bioReadMoreDisplay: getBioReadMoreDisplay(state),
+        tracksReadMoreDisplay: getTracksReadMoreDisplay(state),
+        lovedTracks: getLovedTracks(state)
     }),
     {
-        readMore: readMoreAction
+        bioReadMore: bioReadMoreAction,
+        tracksReadMore: tracksReadMoreAction
     }
 )(ArtistDescription);
 
