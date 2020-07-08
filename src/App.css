@@ -213,6 +213,14 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
+.noImage {
+    height: 11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0e0e0e;
+}
+
 .albumName {
     width: 11rem;
     overflow: hidden;

@@ -77,8 +77,12 @@ export const ArtistDescription = ({
                                     { selectedArtistAlbums && selectedArtistAlbums.map(
                                         (album, index) => (
                                             <a href={album.url} rel="noopener" target="_blank" className="album" key={index}>
-                                                <img className="albumImage" src={album.image} />
-                                                <div className="albumName">{album.name}</div>
+                                                { album.image ? (
+                                                    <img className="albumImage" src={album.image} />
+                                                ) : (
+                                                    <div className="noImage">No Image Available</div>
+                                                )}
+                                                <div className="albumName">{album.name !== '(null)' ? album.name : 'No album name'}</div>
                                             </a>
                                         )
                                     )}
