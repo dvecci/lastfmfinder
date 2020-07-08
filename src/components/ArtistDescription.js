@@ -90,12 +90,15 @@ export const ArtistDescription = ({
                             </div>
                         )}
                     </div>
-                    <div className="relatedArtistsContainer">
-                        <h2>Related Artists</h2>
-                        {relatedArtists && relatedArtists.length ? relatedArtists.map((relatedArtist, index) => (
-                            <RelatedArtist key={index} artist={relatedArtist} />
-                        )) : null}
-                    </div>
+                    {relatedArtists && relatedArtists.length && (
+                        <div className="relatedArtistsContainer">
+                            <h2>Related Artists</h2>
+                            {relatedArtists.map((relatedArtist, index) => (
+                                <RelatedArtist key={index} artist={relatedArtist} />
+                            ))}
+                        </div>
+                    )}
+
                 </div>
             </section>
         ) : null;
