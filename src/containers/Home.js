@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ArtistSearch from '../components/ArtistSearch';
 import ArtistList from '../components/ArtistList';
@@ -31,6 +32,9 @@ export const Home = ({ userName }) => {
            );
 };
 
+Home.propTypes = {
+    userName: PropTypes.string
+};
 
 const ConnectedHome = connect(
     state => ({
