@@ -13,9 +13,7 @@ import { getUserName } from './selectors/selectors';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useHistory
+  Route
 } from 'react-router-dom';
 import Home from './containers/Home';
 
